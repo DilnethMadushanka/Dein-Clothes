@@ -16,7 +16,7 @@ export default function PromoBanners({ onPick }) {
         >
           <img src={b.img} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-105" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-paper">
+          <div className="absolute inset-x-0 bottom-0 flex flex-col items-start justify-between gap-4 p-5 text-paper sm:flex-row sm:items-end sm:p-6">
             <div>
               <h2 className="text-3xl font-medium tracking-tight md:text-4xl">{b.title}</h2>
               <p className="mt-1 text-sm text-paper/80">{b.note}</p>

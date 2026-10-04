@@ -22,7 +22,7 @@ export default function ProductCard({ p, wished, onWish, onQuick, className = ""
           onClick={() => onWish(p.id)}
           aria-label={wished ? `Remove ${p.name} from wishlist` : `Save ${p.name} to wishlist`}
           aria-pressed={wished}
-          className="absolute right-2 top-2 grid size-9 place-items-center bg-paper transition hover:bg-ink hover:text-paper active:scale-95"
+          className="absolute right-1.5 top-1.5 grid size-10 place-items-center bg-paper transition hover:bg-ink hover:text-paper active:scale-95"
         >
           <Heart size={18} weight={wished ? "fill" : "regular"} />
         </button>

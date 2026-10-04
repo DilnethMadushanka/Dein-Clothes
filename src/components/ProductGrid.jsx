@@ -34,7 +34,7 @@ export default function ProductGrid({ query, cat, setCat, wish, onWish, onQuick 
             id="sort"
             value={sort}
             onChange={(e) => setSort(e.target.value)}
-            className="border border-ink bg-paper px-3 py-2 text-sm"
+            className="border border-ink bg-paper px-3 py-2.5 text-base md:text-sm"
           >
             {Object.entries(sorts).map(([k, [label]]) => (
               <option key={k} value={k}>{label}</option>
@@ -50,7 +50,7 @@ export default function ProductGrid({ query, cat, setCat, wish, onWish, onQuick 
             role="tab"
             aria-selected={cat === t}
             onClick={() => setCat(t)}
-            className={`whitespace-nowrap border border-ink px-4 py-2 text-sm transition active:scale-[0.98] ${
+            className={`whitespace-nowrap border border-ink px-4 py-2.5 text-sm transition active:scale-[0.98] ${
               cat === t ? "bg-ink text-paper" : "hover:bg-ink/5"
             }`}
           >

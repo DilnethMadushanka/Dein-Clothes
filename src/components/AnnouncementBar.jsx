@@ -19,7 +19,7 @@ export default function AnnouncementBar() {
 
   return (
     <div className="bg-ink text-paper" role="status">
-      <div className="mx-auto flex h-9 max-w-[1400px] items-center justify-center overflow-hidden px-4 text-xs">
+      <div className="mx-auto flex min-h-10 max-w-[1400px] items-center justify-center overflow-hidden px-4 py-2 text-[11px] leading-snug sm:text-xs">
         <AnimatePresence mode="wait" initial={false}>
           <motion.p
             key={i}

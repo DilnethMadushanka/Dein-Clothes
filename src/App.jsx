@@ -1,4 +1,5 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import AuthPage from "./components/AuthPage.jsx";
 import AnnouncementBar from "./components/AnnouncementBar.jsx";
 import Header from "./components/Header.jsx";
 import HeroCarousel from "./components/HeroCarousel.jsx";
@@ -20,6 +21,16 @@ export default function App() {
   const [quick, setQuick] = useState(null);
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState("All");
+  const [route, setRoute] = useState(window.location.hash);
+
+  useEffect(() => {
+    const onHash = () => {
+      setRoute(window.location.hash);
+      if (window.location.hash === "#/account") window.scrollTo(0, 0);
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
 
   const add = useCallback((p, size) => {
     const key = `${p.id}-${size}`;
@@ -44,6 +55,7 @@ export default function App() {
   }, []);
 
   const count = cart.reduce((n, i) => n + i.qty, 0);
+  const onAuth = route === "#/account";
 
   return (
     <>
@@ -54,9 +66,15 @@ export default function App() {
         query={query}
         setQuery={setQuery}
         cat={cat}
-        pickCat={pickCat}
+        pickCat={(c) => {
+          if (onAuth) window.location.hash = "#/";
+          pickCat(c);
+        }}
         onCart={() => setCartOpen(true)}
       />
+      {onAuth ? (
+        <AuthPage />
+      ) : (
       <main>
         <HeroCarousel onPick={pickCat} />
         <CategoryRow onPick={pickCat} />
@@ -67,6 +85,7 @@ export default function App() {
         <Styled />
         <Newsletter />
       </main>
+      )}
       <Footer />
       <CartDrawer open={cartOpen} items={cart} onClose={() => setCartOpen(false)} onQty={setQty} />
       <QuickView product={quick} onClose={() => setQuick(null)} onAdd={add} />

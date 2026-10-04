@@ -31,9 +31,9 @@ function Body({ product: p, onClose, onAdd }) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 30, scale: 0.98 }}
         transition={{ type: "spring", stiffness: 220, damping: 26 }}
-        className="fixed inset-x-4 top-1/2 z-50 mx-auto grid max-h-[90dvh] max-w-3xl -translate-y-1/2 grid-cols-1 overflow-y-auto bg-paper md:grid-cols-2"
+        className="fixed inset-x-0 bottom-0 z-50 mx-auto grid max-h-[92dvh] max-w-3xl grid-cols-1 overflow-y-auto bg-paper pb-[env(safe-area-inset-bottom)] md:inset-x-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:grid-cols-2 md:pb-0"
       >
-        <div className="aspect-[4/3] bg-paper-2 md:aspect-auto">
+        <div className="aspect-[16/10] bg-paper-2 md:aspect-auto">
           <img src={p.img} alt={p.name} className="h-full w-full object-cover" />
         </div>
         <div className="relative flex flex-col p-6 md:p-8">
@@ -71,7 +71,7 @@ function Body({ product: p, onClose, onAdd }) {
             {err && <p className="mt-2 text-sm font-medium" role="alert">Select a size to continue.</p>}
           </fieldset>
 
-          <button onClick={submit} className="mt-auto bg-ink py-4 text-sm font-medium text-paper transition active:scale-[0.98] md:mt-8">
+          <button onClick={submit} className="mt-8 bg-ink py-4 text-sm font-medium text-paper transition active:scale-[0.98] md:mt-auto">
             Add to bag
           </button>
         </div>

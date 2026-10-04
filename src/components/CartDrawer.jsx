@@ -97,7 +97,7 @@ export default function CartDrawer({ open, items, onClose, onQty }) {
             </div>
 
             {items.length > 0 && (
-              <div className="border-t border-ink/10 p-5">
+              <div className="border-t border-ink/10 p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
                 <div className="flex justify-between text-base font-medium">
                   <span>Subtotal</span>
                   <span className="font-mono">{fmt(total)}</span>

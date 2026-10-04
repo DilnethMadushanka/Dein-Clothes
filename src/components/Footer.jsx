@@ -8,9 +8,9 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer className="mt-20 overflow-hidden bg-ink text-paper">
-      <div className="mx-auto grid max-w-[1400px] gap-10 px-4 pt-16 sm:grid-cols-2 md:grid-cols-12 md:px-8">
-        <div className="md:col-span-4">
+    <footer className="mt-20 overflow-hidden bg-ink pb-[env(safe-area-inset-bottom)] text-paper">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-x-4 gap-y-10 px-4 pt-14 md:grid-cols-12 md:px-8">
+        <div className="col-span-2 md:col-span-4">
           <p className="text-xl font-semibold tracking-[0.3em]">DEIN</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/70">
             Clothing and accessories in black and white. Delivered island wide.
@@ -24,7 +24,7 @@ export default function Footer() {
           </div>
         </div>
         {cols.map(([h, items]) => (
-          <div key={h} className="md:col-span-2">
+          <div key={h} className="col-span-1 md:col-span-2">
             <h3 className="text-sm font-medium">{h}</h3>
             <ul className="mt-4 space-y-2 text-sm text-paper/70">
               {items.map((i) => (

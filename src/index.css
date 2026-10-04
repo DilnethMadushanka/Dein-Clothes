@@ -16,7 +16,10 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
 }
+button, a, select, input { touch-action: manipulation; }
 ::selection { background: var(--color-ink); color: var(--color-paper); }
 img { filter: saturate(1.08); }
 
